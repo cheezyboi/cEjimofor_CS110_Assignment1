@@ -1,6 +1,13 @@
 
 **you have to dowload and extract the whole folder into oracle to run the program**
+
 through github
+- download as zip directly
+- extract the folder files
+- navigate to your eclipse workspace
+- open the java files in Oracle
+
+through github - 2
 - open git. if you don't have git, type in "install git" in google
 - (WINDOWS) open command line
 - (MACOS) open terminal
