@@ -34,7 +34,7 @@ public class SoundBot {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		System.out.println("\n----------------------------------------------------");
-		System.out.println("Hello! My name is SoundBot and I'll be assisting you today!");
+		System.out.println("\nHello! My name is SoundBot and I'll be assisting you today!");
 		System.out.println("Enter 'no' or 'stop' or 'exit' at anytime to if you want me to leave you alone.");
 		System.out.println("What are you in the mood for listening-wise? Podcasts or music?");
 		soundType = input.nextLine();
@@ -109,6 +109,7 @@ public class SoundBot {
 	private static void podChooser() {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("\nWhat type of podcast are you in the mood for then (Political or Comedic)?");
 		podcastType = input.nextLine();
 		SoundBot.validPodEntryCheck();
@@ -205,6 +206,7 @@ public class SoundBot {
 	private static void musChooser() {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("\nWhat genre of music are you in the mood for then (country, rap, oldies, rock or pop)?");
 		musicType = input.nextLine();
 		SoundBot.validMusEntryCheck();
@@ -330,7 +332,7 @@ public class SoundBot {
 			System.out.println("\nSorry! I have no more suggestions in oldies :(");
 		} else {
 			System.out.println("\n----------------------------------------------------");
-			System.out.println("Cool! Check out 'My Funny Valentine' by Frank Sinatra.");
+			System.out.println("\nCool! Check out 'My Funny Valentine' by Frank Sinatra.");
 			System.out.println("https://www.youtube.com/watch?v=Are-c0BLyIg");
 			System.out.println("Love people with their insecurities, faults, and all!");
 			System.out.println("\nCheck out my other suggestions!");

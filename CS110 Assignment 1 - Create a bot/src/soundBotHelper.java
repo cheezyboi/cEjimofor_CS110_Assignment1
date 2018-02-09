@@ -44,15 +44,15 @@ public class soundBotHelper {
 		if ((soundType1.equalsIgnoreCase("podcast")) ||
 		    (soundType1.equalsIgnoreCase("podcasts"))) {
 			System.out.println("\n----------------------------------------------------");
-			System.out.println("What are you interested in next? Another podcast suggestion?");
+			System.out.println("\nWhat are you interested in next? Another podcast suggestion?");
 			System.out.println("Or would you like to evaluate my exquisite taste in music?");
 		} else if (soundType1.equalsIgnoreCase("music")) {
 			System.out.println("\n----------------------------------------------------");
-			System.out.println("What are you interested in next? Another song suggestion?");
+			System.out.println("\nWhat are you interested in next? Another song suggestion?");
 			System.out.println("Or would you like to evaluate my acute taste in podcasts?");
 		} else {
 			System.out.println("\n----------------------------------------------------");
-			System.out.println("What are you interested in next? My exquisite taste in music?");
+			System.out.println("\nWhat are you interested in next? My exquisite taste in music?");
 			System.out.println("Or my acute taste in podcasts?");
 		}
 		String soundType2 = input.nextLine();
