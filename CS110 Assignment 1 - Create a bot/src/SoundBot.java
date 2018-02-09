@@ -6,7 +6,7 @@ public class SoundBot {
 	public static String soundType;
 	private static String musicType;
 	public static String podcastType;
-	
+
 	/* method counters */
 	/* count the amount of times each method is called */
 
@@ -14,7 +14,7 @@ public class SoundBot {
 	public static int count = 0;
 	public static int polPodCount = 0;
 	public static int comPodCount = 0;
-	
+
 	/* music counters */
 	public static int countryCount = 0;
 	public static int rapCount = 0;
@@ -33,6 +33,7 @@ public class SoundBot {
 		count++;
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("Hello! My name is SoundBot and I'll be assisting you today!");
 		System.out.println("Enter 'no' or 'stop' or 'exit' at anytime to if you want me to leave you alone.");
 		System.out.println("What are you in the mood for listening-wise? Podcasts or music?");
@@ -40,15 +41,15 @@ public class SoundBot {
 		SoundBot.validSoundEntryCheck();
 	}
 	private static void validSoundEntryCheck() {
-		if ((soundType.equalsIgnoreCase("podcast")) || 
-			(soundType.equalsIgnoreCase("podcast please")) || 
-			(soundType.equalsIgnoreCase("podcasts please")) || 
-			(soundType.equalsIgnoreCase("music")) ||
-			(soundType.equalsIgnoreCase("music please")) || 
-			(soundType.equalsIgnoreCase("podcasts")) || 
-			(soundType.equalsIgnoreCase("stop")) || 
-			(soundType.equalsIgnoreCase("no")) || 
-			(soundType.equalsIgnoreCase("exit"))) {
+		if ((soundType.equalsIgnoreCase("podcast")) ||
+				(soundType.equalsIgnoreCase("podcast please")) ||
+				(soundType.equalsIgnoreCase("podcasts please")) ||
+				(soundType.equalsIgnoreCase("music")) ||
+				(soundType.equalsIgnoreCase("music please")) ||
+				(soundType.equalsIgnoreCase("podcasts")) ||
+				(soundType.equalsIgnoreCase("stop")) ||
+				(soundType.equalsIgnoreCase("no")) ||
+				(soundType.equalsIgnoreCase("exit"))) {
 			if (chooserMistakeCount >= 2) {
 				System.out.println("\nFINALLY. Thank you :)");
 				chooserMistakeCount = 0;
@@ -62,7 +63,7 @@ public class SoundBot {
 	private static void getSoundInput() {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		if (chooserMistakeCount == 1) { 
+		if (chooserMistakeCount == 1) {
 			System.out.println("\nUnfortunately, I can only give podcast and music suggestions.");
 			System.out.println("Either you misspelled something or you chose something ouside of your options.");
 			System.out.println("Please enter either 'podcast' or 'music' if you want a suggestion in either.");
@@ -83,16 +84,21 @@ public class SoundBot {
 		}
 	}
 	static void giveSoundOutput() {
-		if ((soundType.equalsIgnoreCase("podcast")) || 
-			(soundType.equalsIgnoreCase("podcast please")) ||
-			(soundType.equalsIgnoreCase("podcasts please")) ||
-			(soundType.equalsIgnoreCase("podcasts"))) {
+		if ((soundType.equalsIgnoreCase("podcast")) ||
+				(soundType.equalsIgnoreCase("podcasts"))) {
 			SoundBot.podChooser();
-		} else if ((soundType.equalsIgnoreCase("music")) ||
-				   (soundType.equalsIgnoreCase("music please"))) {
+		} else if ((soundType.equalsIgnoreCase("podcast please")) ||
+							 (soundType.equalsIgnoreCase("podcasts please"))) {
+			System.out.println("\nThanks for being polite :)");
+			SoundBot.podChooser();
+		} else if ((soundType.equalsIgnoreCase("music")) {
 			SoundBot.musChooser();
-		} else if ((soundType.equalsIgnoreCase("no")) || (soundType.equalsIgnoreCase("exit"))
-				|| (soundType.equalsIgnoreCase("stop"))) {
+		} else if (soundType.equalsIgnoreCase("music please")) {
+			System.out.println("\nThanks for being polite :)");
+			SoundBot.musChooser();
+		} else if ((soundType.equalsIgnoreCase("no")) ||
+							 (soundType.equalsIgnoreCase("exit")) ||
+							 (soundType.equalsIgnoreCase("stop"))) {
 			SoundBot.exit();
 		} else {
 			SoundBot.getSoundInput();
@@ -108,11 +114,11 @@ public class SoundBot {
 		SoundBot.validPodEntryCheck();
 	}
 	private static void validPodEntryCheck() {
-		if ((podcastType.equalsIgnoreCase("Comedic")) || 
-			(podcastType.equalsIgnoreCase("political")) || 
-			(podcastType.equalsIgnoreCase("stop")) || 
-			(podcastType.equalsIgnoreCase("exit")) ||
-			(podcastType.equalsIgnoreCase("no"))) {
+		if ((podcastType.equalsIgnoreCase("Comedic")) ||
+				(podcastType.equalsIgnoreCase("political")) ||
+				(podcastType.equalsIgnoreCase("stop")) ||
+				(podcastType.equalsIgnoreCase("exit")) ||
+				(podcastType.equalsIgnoreCase("no"))) {
 			if (chooserMistakeCount >= 2) {
 				System.out.println("\nFINALLY. Thank you :)");
 				chooserMistakeCount = 0;
@@ -126,7 +132,7 @@ public class SoundBot {
 	private static void getPodInput() {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		if (chooserMistakeCount == 1) { 
+		if (chooserMistakeCount == 1) {
 				System.out.println("\nEither you misspelled or you chose something ouside of your options.");
 				System.out.println("Please enter either 'political' or 'comedic' if you want a suggestion.");
 				System.out.println("If you chillin, enter 'no' to exit this bot.");
@@ -153,13 +159,15 @@ public class SoundBot {
 		} else if (podcastType.equalsIgnoreCase("Comedic")) {
 			SoundBot.comedyPod();
 			new soundBotHelper();
-		} else if ((podcastType.equalsIgnoreCase("no")) || (podcastType.equalsIgnoreCase("exit"))
-				|| (podcastType.equalsIgnoreCase("stop"))) {
+		} else if ((podcastType.equalsIgnoreCase("no")) ||
+							 (podcastType.equalsIgnoreCase("exit")) ||
+							 (podcastType.equalsIgnoreCase("stop"))) {
 			SoundBot.exit();
 		}
 	}
 	private static void politicPod() {
 		if (polPodCount == 1) {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nWhile not explicitely political, the Joe Rogan Experience is what you really need.");
 			System.out.println("They talk about every thing on this podcast. Literally, everything.");
 			System.out.println("http://podcasts.joerogan.net/");
@@ -167,6 +175,7 @@ public class SoundBot {
 		} else if (polPodCount > 1) {
 			System.out.println("\nSorry! I have no more suggestions in this category!");
 		} else {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nCool! Check out 'The Fifth Element'.");
 			System.out.println("I've found it to have an balanced view of perspectives.");
 			System.out.println("http://thefiftheleminute.com/");
@@ -201,14 +210,14 @@ public class SoundBot {
 		SoundBot.validMusEntryCheck();
 	}
 	private static void validMusEntryCheck() {
-		if ((musicType.equalsIgnoreCase("country")) || 
-			(musicType.equalsIgnoreCase("rap")) || 
-			(musicType.equalsIgnoreCase("oldies")) || 
-			(musicType.equalsIgnoreCase("pop")) || 
-			(musicType.equalsIgnoreCase("rock")) || 
-			(musicType.equalsIgnoreCase("stop")) || 
-			(musicType.equalsIgnoreCase("exit")) || 
-			(musicType.equalsIgnoreCase("no"))) {
+		if ((musicType.equalsIgnoreCase("country")) ||
+				(musicType.equalsIgnoreCase("rap")) ||
+				(musicType.equalsIgnoreCase("oldies")) ||
+				(musicType.equalsIgnoreCase("pop")) ||
+				(musicType.equalsIgnoreCase("rock")) ||
+				(musicType.equalsIgnoreCase("stop")) ||
+				(musicType.equalsIgnoreCase("exit")) ||
+				(musicType.equalsIgnoreCase("no"))) {
 			if (chooserMistakeCount >= 2) {
 				System.out.println("\nFINALLY. Thank you :)");
 				chooserMistakeCount = 0;
@@ -222,7 +231,7 @@ public class SoundBot {
 	private static void getMusInput() {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		if (chooserMistakeCount == 1) { 
+		if (chooserMistakeCount == 1) {
 			System.out.println("\nEither you misspelled or you chose something ouside of your options.");
 			System.out.println("Please enter either 'country', 'rap', 'oldies', 'pop', or 'rock'");
 			System.out.println("if you want a suggestion.");
@@ -260,21 +269,24 @@ public class SoundBot {
 		} else if (musicType.equalsIgnoreCase("rock")) {
 			SoundBot.rock();
 			new soundBotHelper();
-		} else if ((musicType.equalsIgnoreCase("no")) || 
-				   (musicType.equalsIgnoreCase("exit")) || 
+		} else if ((musicType.equalsIgnoreCase("no")) ||
+				   (musicType.equalsIgnoreCase("exit")) ||
 				   (musicType.equalsIgnoreCase("stop"))) {
 			SoundBot.exit();
 		}
 	}
 	private static void country() {
 		if (countryCount == 1) {
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("\nCool! Check out 'Lately' by Dan + Shay.");
 		System.out.println("https://www.youtube.com/watch?v=sDvDS6hI4is");
 		System.out.println("This is a country-er than my last suggestion. Hope it works!");
 		System.out.println("\nThat's all for my country suggestions! Check my suggestions in other categories!");
 		} else if (countryCount > 1) {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in country :(");
 		} else {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nAlright! Check out 'Say Something' by Justin Timberlake and Chris Stapleton.");
 			System.out.println("https://www.youtube.com/watch?v=8MPbR6Cbwi4");
 			System.out.println("It's slightly poppy but I think you'll like it!");
@@ -286,14 +298,17 @@ public class SoundBot {
 	}
 	private static void rap() {
 		if (rapCount == 1) {
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("\nCheck out 'River' by Eminem and Ed Sheeran.");
 		System.out.println("https://www.youtube.com/watch?v=3BXDsVD6O10");
 		System.out.println("Notice how good the chorus written by Ed Sheeran is.");
 		System.out.println("\nForget rap, become more wholesome and check out more of Ed :)");
 		System.out.println("That's all for my rap suggestions! Check my suggestions in other categories!");
 		} else if (rapCount > 1) {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in rap :(");
 		} else {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nCool! Check out 'Stop It' by French Montana and T.I. It's lit.");
 			System.out.println("https://www.youtube.com/watch?v=NKH3Kgou4YI");
 			System.out.println("Hope you like it!");
@@ -305,13 +320,16 @@ public class SoundBot {
 	}
 	private static void oldies() {
 		if (oldiesCount == 1) {
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("\nCheck out 'You Can Call Me Al' by Paul Simon.");
 		System.out.println("https://www.youtube.com/watch?v=uq-gYOrU8bA");
 		System.out.println("CLASSIC.");
 		System.out.println("\nThat's all for my oldies suggestions! Check my suggestions in other categories!");
 		} else if (oldiesCount > 1) {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in oldies :(");
 		} else {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("Cool! Check out 'My Funny Valentine' by Frank Sinatra.");
 			System.out.println("https://www.youtube.com/watch?v=Are-c0BLyIg");
 			System.out.println("Love people with their insecurities, faults, and all!");
@@ -323,13 +341,16 @@ public class SoundBot {
 	}
 	private static void pop() {
 		if (popCount == 1) {
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("\nCheck out 'The Other Stripped' by Lauv.");
 		System.out.println("https://www.youtube.com/watch?v=_JHhEh45FpA");
 		System.out.println("if you don't appreciate this, idk what to tell you mate...");
 		System.out.println("\nThat's all for my pop suggestions! Check my suggestions in other categories!");
 		} else if (popCount > 1) {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in pop :(");
 		} else {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nPop music is trash. Get cultured with some 'Funeral March' by Frederic Chopin.");
 			System.out.println("https://www.youtube.com/watch?v=Hgw_RD_1_5I");
 			System.out.println("It's truly beautiful. You'll thank me later.");
@@ -341,13 +362,16 @@ public class SoundBot {
 	}
 	private static void rock() {
 		if (rockCount == 1) {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nWARNING. 100% CHANCE OF A YOUTUBE BINGE IF YOU CHECK THIS OUT...");
 			System.out.println("here it is if you have 5 hours to enjoy. Check out 'Cold Water' by Our Last Band.");
 			System.out.println("https://www.youtube.com/watch?v=AJDCk_1SjBM");
 			System.out.println("\nThat's all for my rock suggestions! Check my suggestions in other categories!");
 			} else if (rockCount > 1) {
+				System.out.println("\n----------------------------------------------------");
 				System.out.println("\nSorry! I have no more suggestions in rock :(");
 			} else {
+			System.out.println("\n----------------------------------------------------");
 			System.out.println("\nRevolutionary! Check out 'Too Good at Goodbyes' by Archetypes Collide.");
 			System.out.println("https://www.youtube.com/watch?v=SFCyUQwSnMo");
 			System.out.println("Coolest remix of a pop song I've ever heard.");
@@ -361,7 +385,7 @@ public class SoundBot {
 	void setSoundType(String name) {
 		soundType = name;
 	}
-	
+
 	/* exit module method */
 	public static void exit() {
 		System.out.println("\nHave a good one then boss!");
