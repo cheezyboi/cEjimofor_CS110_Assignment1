@@ -20,6 +20,10 @@ public class soundBotHelper {
 	}
 	static void moreSuggestionsResponse(String moreFun) {
 		if (moreFun.equalsIgnoreCase("yes")) {
+			if (mistakeCount >= 2) {
+				System.out.println("\nFINALLY. Thank you :)");
+				mistakeCount = 0;
+			}
 			soundBotHelper.giveMoreSuggestions();
 		} else if (moreFun.equalsIgnoreCase("no")) {
 			SoundBot.exit();
@@ -30,11 +34,30 @@ public class soundBotHelper {
 	private static void getSuggestionInput() {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		System.out.println("\nEither you misspelled something or you chose something ouside of your options.");
-		System.out.println("Please enter either 'yes' if you want more suggestions.");
-		System.out.println("Enter 'no' want to sit back enjoy the gift I've already given.");
-		String moreFun = input.nextLine();
-		soundBotHelper.moreSuggestionsResponse(moreFun);
+		String moreFun = null;
+		mistakeCount++;
+		if (mistakeCount == 1) {
+			SoundBot.BforHelper();
+			System.out.println("\nPlease enter either 'yes' if you want more suggestions.");
+			System.out.println("Enter 'no' want to sit back enjoy the gift I've already given.");
+			System.out.println("Otherwise, I've got better things to do...");
+			moreFun = input.nextLine();
+			soundBotHelper.moreSuggestionsResponse(moreFun);
+		} else if (mistakeCount == 2) {
+			SoundBot.BforHelper();
+			System.out.println("\nBruh. enter either 'yes' or 'no'");
+			System.out.println("It's not that hard mate...");
+			moreFun = input.nextLine();
+			soundBotHelper.moreSuggestionsResponse(moreFun);
+		} else if (mistakeCount == 3) {
+			SoundBot.BforHelper();
+			System.out.println("\none more time and i'm gone. it's all lowercase cuz I'm mad.");
+			System.out.println("enter either 'yes' or 'no'. no punctuation. no attitude.");
+			moreFun = input.nextLine();
+			soundBotHelper.moreSuggestionsResponse(moreFun);
+		} else {
+			SoundBot.sassExit();
+	}
 	}
 	public static void giveMoreSuggestions() {
 		@SuppressWarnings("resource")
@@ -62,6 +85,7 @@ public class soundBotHelper {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		if (mistakeCount == 1) {
+			SoundBot.BforHelper();
 			System.out.println("\nAsk politely this time! Who taught you your manners...");
 			System.out.println("I'll accept 'podcast please' or 'music please'.");
 			System.out.println("p.s. you could also enter 'music' or 'podcast' like before...");
@@ -69,6 +93,7 @@ public class soundBotHelper {
 			String soundType2 = input.nextLine();
 			soundBotHelper.newValidSoundEntryCheck(soundType2);
 		} else if (mistakeCount == 2) {
+			SoundBot.BforHelper();
 			System.out.println("\nI'M SERIOUS. This is your last chance.");
 			System.out.println("'podcast please' or 'music please' are your options");
 			System.out.println("p.s. you could also enter 'music' or 'podcast' like before...");
@@ -76,7 +101,8 @@ public class soundBotHelper {
 			String soundType2 = input.nextLine();
 			soundBotHelper.newValidSoundEntryCheck(soundType2);
 		} else if (mistakeCount == 3) {
-			System.out.println("\nYou caught me. That first threat was a bluff.");
+			SoundBot.BforHelper();
+			System.out.println("\nYou caught me. That last threat was a bluff.");
 			System.out.println("But if you do it again, I'm seriously quitting.");
 			System.out.println("READ ------> 'podcast please' or 'music please' are your best options!!!");
 			System.out.println("p.s. you could also enter 'music' or 'podcast' like before...");

@@ -64,17 +64,20 @@ public class SoundBot {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		if (chooserMistakeCount == 1) {
+			SoundBot.B();
 			System.out.println("\nUnfortunately, I can only give podcast and music suggestions.");
 			System.out.println("Either you misspelled something or you chose something ouside of your options.");
 			System.out.println("Please enter either 'podcast' or 'music' if you want a suggestion in either.");
 			soundType = input.nextLine();
 			SoundBot.validSoundEntryCheck();
 		} else if (chooserMistakeCount == 2) {
+			SoundBot.B();
 			System.out.println("\nC'mon now. read the directions please...");
 			System.out.println("Enter either 'podcast' or 'music' if you want a suggestion in either.");
 			soundType = input.nextLine();
 			SoundBot.validSoundEntryCheck();
 		} else if (chooserMistakeCount == 3) {
+			SoundBot.B();
 			System.out.println("\nLAST CHANCE. follow the directions or I quit...");
 			System.out.println("Enter 'podcast' or 'music' if you want a suggestion in either.");
 			soundType = input.nextLine();
@@ -130,26 +133,36 @@ public class SoundBot {
 			SoundBot.getPodInput();
 		}
 	}
+	//This was a modified get input method based on Kmetz suggestion.
+	//Switch-case does does the same thing as if-else statements
+	//they are much cleaner though! Let me know what you think :)
 	private static void getPodInput() {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		if (chooserMistakeCount == 1) {
+		switch (chooserMistakeCount) {
+				case 1:
+				SoundBot.B();
 				System.out.println("\nEither you misspelled or you chose something ouside of your options.");
 				System.out.println("Please enter either 'political' or 'comedic' if you want a suggestion.");
 				System.out.println("If you chillin, enter 'no' to exit this bot.");
 				podcastType = input.nextLine();
 				SoundBot.validPodEntryCheck();
-			} else if (chooserMistakeCount == 2) {
+				break;
+			  case 2:
+				SoundBot.B();
 				System.out.println("\nC'mon now. read the directions please...");
 				System.out.println("Enter either 'political' or 'comedic' if you want a suggestion.");
 				podcastType = input.nextLine();
 				SoundBot.validPodEntryCheck();
-			} else if (chooserMistakeCount == 3) {
+				break;
+			  case 3:
+				SoundBot.B();
 				System.out.println("\nLAST CHANCE. follow the directions or I quit...");
 				System.out.println("Enter 'political' or 'comedic' if you want a suggestion.");
 				podcastType = input.nextLine();
 				SoundBot.validPodEntryCheck();
-			} else {
+				break;
+				case 4:
 				SoundBot.sassExit();
 		}
 	}
@@ -169,14 +182,18 @@ public class SoundBot {
 	private static void politicPod() {
 		if (polPodCount == 1) {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nWhile not explicitely political, the Joe Rogan Experience is what you really need.");
 			System.out.println("They talk about every thing on this podcast. Literally, everything.");
 			System.out.println("http://podcasts.joerogan.net/");
 			System.out.println("That's it for my political podcast suggestons!");
 		} else if (polPodCount > 1) {
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in this category!");
 		} else {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nCool! Check out 'The Fifth Element'.");
 			System.out.println("I've found it to have an balanced view of perspectives.");
 			System.out.println("http://thefiftheleminute.com/");
@@ -186,13 +203,19 @@ public class SoundBot {
 	}
 	private static void comedyPod() {
 		if (comPodCount == 1) {
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nCool! Check out 'Brilliant Idiots'.");
 			System.out.println("They always seem to have a cool range of topics on there!");
 			System.out.println("https://soundcloud.com/thebrilliantidiots");
 			System.out.println("\nHope you like it!");
 		} else if (comPodCount > 1) {
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in this category!");
 		} else {
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nCheck out 'Bill Burr's Monday Morning Podcast'.");
 			System.out.println("Bill is a professional comedian that riffs on the world for");
 			System.out.println("an hour or so on Monday and Thursdays.");
@@ -234,6 +257,7 @@ public class SoundBot {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		if (chooserMistakeCount == 1) {
+			SoundBot.B();
 			System.out.println("\nEither you misspelled or you chose something ouside of your options.");
 			System.out.println("Please enter either 'country', 'rap', 'oldies', 'pop', or 'rock'");
 			System.out.println("if you want a suggestion.");
@@ -241,16 +265,18 @@ public class SoundBot {
 			musicType = input.nextLine();
 			SoundBot.validMusEntryCheck();
 			} else if (chooserMistakeCount == 2) {
-			System.out.println("\nC'mon now. read the directions please...");
-			System.out.println("Enter either 'country', 'rap', 'oldies', 'pop', or 'rock'");
-			System.out.println("if you want a suggestion.");
-			musicType = input.nextLine();
-			SoundBot.validMusEntryCheck();
+				SoundBot.B();
+				System.out.println("\nC'mon now. read the directions please...");
+				System.out.println("Enter either 'country', 'rap', 'oldies', 'pop', or 'rock'");
+				System.out.println("if you want a suggestion.");
+				musicType = input.nextLine();
+				SoundBot.validMusEntryCheck();
 			} else if (chooserMistakeCount == 3) {
-			System.out.println("\nLAST CHANCE. follow the directions or I quit...");
-			System.out.println("Enter 'country', 'rap', 'oldies', 'pop', or 'rock' if you want a suggestion.");
-			musicType = input.nextLine();
-			SoundBot.validMusEntryCheck();
+				SoundBot.B();
+				System.out.println("\nLAST CHANCE. follow the directions or I quit...");
+				System.out.println("Enter 'country', 'rap', 'oldies', 'pop', or 'rock' if you want a suggestion.");
+				musicType = input.nextLine();
+				SoundBot.validMusEntryCheck();
 			} else {
 			SoundBot.sassExit();
 		}
@@ -280,15 +306,18 @@ public class SoundBot {
 	private static void country() {
 		if (countryCount == 1) {
 		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
 		System.out.println("\nCool! Check out 'Lately' by Dan + Shay.");
 		System.out.println("https://www.youtube.com/watch?v=sDvDS6hI4is");
 		System.out.println("This is a country-er than my last suggestion. Hope it works!");
 		System.out.println("\nThat's all for my country suggestions! Check my suggestions in other categories!");
 		} else if (countryCount > 1) {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in country :(");
 		} else {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nAlright! Check out 'Say Something' by Justin Timberlake and Chris Stapleton.");
 			System.out.println("https://www.youtube.com/watch?v=8MPbR6Cbwi4");
 			System.out.println("It's slightly poppy but I think you'll like it!");
@@ -301,6 +330,7 @@ public class SoundBot {
 	private static void rap() {
 		if (rapCount == 1) {
 		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
 		System.out.println("\nCheck out 'River' by Eminem and Ed Sheeran.");
 		System.out.println("https://www.youtube.com/watch?v=3BXDsVD6O10");
 		System.out.println("Notice how good the chorus written by Ed Sheeran is.");
@@ -308,9 +338,11 @@ public class SoundBot {
 		System.out.println("That's all for my rap suggestions! Check my suggestions in other categories!");
 		} else if (rapCount > 1) {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in rap :(");
 		} else {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nCool! Check out 'Stop It' by French Montana and T.I. It's lit.");
 			System.out.println("https://www.youtube.com/watch?v=NKH3Kgou4YI");
 			System.out.println("Hope you like it!");
@@ -323,15 +355,18 @@ public class SoundBot {
 	private static void oldies() {
 		if (oldiesCount == 1) {
 		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
 		System.out.println("\nCheck out 'You Can Call Me Al' by Paul Simon.");
 		System.out.println("https://www.youtube.com/watch?v=uq-gYOrU8bA");
 		System.out.println("CLASSIC.");
 		System.out.println("\nThat's all for my oldies suggestions! Check my suggestions in other categories!");
 		} else if (oldiesCount > 1) {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in oldies :(");
 		} else {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nCool! Check out 'My Funny Valentine' by Frank Sinatra.");
 			System.out.println("https://www.youtube.com/watch?v=Are-c0BLyIg");
 			System.out.println("Love people with their insecurities, faults, and all!");
@@ -344,15 +379,18 @@ public class SoundBot {
 	private static void pop() {
 		if (popCount == 1) {
 		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
 		System.out.println("\nCheck out 'The Other Stripped' by Lauv.");
 		System.out.println("https://www.youtube.com/watch?v=_JHhEh45FpA");
 		System.out.println("if you don't appreciate this, idk what to tell you mate...");
 		System.out.println("\nThat's all for my pop suggestions! Check my suggestions in other categories!");
 		} else if (popCount > 1) {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nSorry! I have no more suggestions in pop :(");
 		} else {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nPop music is trash. Get cultured with some 'Funeral March' by Frederic Chopin.");
 			System.out.println("https://www.youtube.com/watch?v=Hgw_RD_1_5I");
 			System.out.println("It's truly beautiful. You'll thank me later.");
@@ -365,15 +403,18 @@ public class SoundBot {
 	private static void rock() {
 		if (rockCount == 1) {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nWARNING. 100% CHANCE OF A YOUTUBE BINGE IF YOU CHECK THIS OUT...");
 			System.out.println("here it is if you have 5 hours to enjoy. Check out 'Cold Water' by Our Last Band.");
 			System.out.println("https://www.youtube.com/watch?v=AJDCk_1SjBM");
 			System.out.println("\nThat's all for my rock suggestions! Check my suggestions in other categories!");
 			} else if (rockCount > 1) {
 				System.out.println("\n----------------------------------------------------");
+				System.out.println("----------------------------------------------------");
 				System.out.println("\nSorry! I have no more suggestions in rock :(");
 			} else {
 			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
 			System.out.println("\nRevolutionary! Check out 'Too Good at Goodbyes' by Archetypes Collide.");
 			System.out.println("https://www.youtube.com/watch?v=SFCyUQwSnMo");
 			System.out.println("Coolest remix of a pop song I've ever heard.");
@@ -390,30 +431,119 @@ public class SoundBot {
 
 	/* exit module method */
 	public static void exit() {
+		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
 		System.out.println("\nHave a good one then boss!");
 		System.out.println("\n      * * * * * *    ");
 		System.out.println("    *             *    ");
 		System.out.println("  *     *     *     *  ");
-		System.out.println(" *     ***   ***	     * ");
+		System.out.println(" *     ***   ***     * ");
 		System.out.println("*       *     *       *");
 		System.out.println("*                     *");
 		System.out.println(" *     *       *     * ");
 		System.out.println("  *      *****      *  ");
 		System.out.println("    *             *    ");
 		System.out.println("      * * * * * *      ");
+		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
 	}
 	public static void sassExit() {
+		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
 		System.out.println("\nEither you don't listen or you're just a bully.");
 		System.out.println("BYE. You can come back when you decide to be nice.");
 		System.out.println("\n      * * * * * *    ");
 		System.out.println("    *             *    ");
 		System.out.println("  *                 *  ");
-		System.out.println(" *     ***   ***	     * ");
+		System.out.println(" *     ***   ***     * ");
 		System.out.println("*        *            *");
 		System.out.println("*                     *");
 		System.out.println(" *     **********    * ");
 		System.out.println("  *                 *  ");
 		System.out.println("    *             *    ");
 		System.out.println("      * * * * * *      ");
+		System.out.println("\n----------------------------------------------------");
+		System.out.println("----------------------------------------------------");
+	}
+  /* specifies the BYE string that prints when user makes input mistake */
+	public static void BforHelper() {
+		switch (soundBotHelper.mistakeCount) {
+			case 1:
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			System.out.println("**** ");
+			System.out.println("*   * ");
+			System.out.println("****  ");
+			System.out.println("*   *");
+			System.out.println("**** ");
+			System.out.println("(if this spells bye, the bot quits!)");
+			System.out.println("----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			break;
+			case 2:
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			System.out.println("****  *     *");
+			System.out.println("*   *  *   * ");
+			System.out.println("****    * *  ");
+			System.out.println("*   *    *   ");
+			System.out.println("****     *   ");
+			System.out.println("(if this spells bye, the bot quits!)");
+			System.out.println("----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			break;
+			case 3:
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			System.out.println("****  *     * *****");
+			System.out.println("*   *  *   *  *     ");
+			System.out.println("****    * *   *** ");
+			System.out.println("*   *    *    *    ");
+			System.out.println("****     *    ***** * * *");
+			System.out.println("(if this spells bye, the bot quits!)");
+			System.out.println("----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			break;
+		}
+	}
+	public static void B() {
+		switch (chooserMistakeCount) {
+			case 1:
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			System.out.println("**** ");
+			System.out.println("*   * ");
+			System.out.println("****  ");
+			System.out.println("*   *");
+			System.out.println("**** ");
+			System.out.println("(if this spells bye, the bot quits!)");
+			System.out.println("----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			break;
+			case 2:
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			System.out.println("****  *     *");
+			System.out.println("*   *  *   * ");
+			System.out.println("****    * *  ");
+			System.out.println("*   *    *   ");
+			System.out.println("****     *   ");
+			System.out.println("(if this spells bye, the bot quits!)");
+			System.out.println("----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			break;
+			case 3:
+			System.out.println("\n----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			System.out.println("****  *     * *****");
+			System.out.println("*   *  *   *  *     ");
+			System.out.println("****    * *   *** ");
+			System.out.println("*   *    *    *    ");
+			System.out.println("****     *    ***** * * *");
+			System.out.println("(if this spells bye, the bot quits!)");
+			System.out.println("----------------------------------------------------");
+			System.out.println("----------------------------------------------------");
+			break;
+		}
 	}
 }
