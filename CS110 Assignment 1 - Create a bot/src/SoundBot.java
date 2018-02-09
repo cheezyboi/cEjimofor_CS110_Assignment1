@@ -91,7 +91,7 @@ public class SoundBot {
 							 (soundType.equalsIgnoreCase("podcasts please"))) {
 			System.out.println("\nThanks for being polite :)");
 			SoundBot.podChooser();
-		} else if ((soundType.equalsIgnoreCase("music")) {
+		} else if (soundType.equalsIgnoreCase("music")) {
 			SoundBot.musChooser();
 		} else if (soundType.equalsIgnoreCase("music please")) {
 			System.out.println("\nThanks for being polite :)");

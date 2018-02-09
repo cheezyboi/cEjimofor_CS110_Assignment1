@@ -41,7 +41,8 @@ public class soundBotHelper {
 		Scanner input = new Scanner(System.in);
 		String soundType1 = SoundBot.soundType;
 		System.out.println("\nNice! I've got more for you then!");
-		if ((soundType1.equalsIgnoreCase("podcast")) || (soundType1.equalsIgnoreCase("podcasts"))) {
+		if ((soundType1.equalsIgnoreCase("podcast")) ||
+		    (soundType1.equalsIgnoreCase("podcasts"))) {
 			System.out.println("\n----------------------------------------------------");
 			System.out.println("What are you interested in next? Another podcast suggestion?");
 			System.out.println("Or would you like to evaluate my exquisite taste in music?");
@@ -86,12 +87,12 @@ public class soundBotHelper {
 		}
 	}
 	private static void newValidSoundEntryCheck(String type) {
-		if ((soundType.equalsIgnoreCase("podcast")) ||
-				(soundType.equalsIgnoreCase("podcast please")) ||
-				(soundType.equalsIgnoreCase("podcasts please")) ||
-				(soundType.equalsIgnoreCase("music")) ||
-				(soundType.equalsIgnoreCase("music please")) ||
-				(soundType.equalsIgnoreCase("podcasts")) ||
+		if ((type.equalsIgnoreCase("podcast")) ||
+				(type.equalsIgnoreCase("podcast please")) ||
+				(type.equalsIgnoreCase("podcasts please")) ||
+				(type.equalsIgnoreCase("music")) ||
+				(type.equalsIgnoreCase("music please")) ||
+				(type.equalsIgnoreCase("podcasts")) ||
 		    (type.equalsIgnoreCase("stop")) ||
 		    (type.equalsIgnoreCase("no")) ||
 		    (type.equalsIgnoreCase("exit"))) {
